@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.forexnews.app",
+      "sha256_cert_fingerprints": [
+        "AD:09:B2:44:3F:33:A8:6A:6A:A4:CC:55:81:52:E1:C1:AD:8D:C4:1C:14:3B:02:17:91:0F:11:18:BD:DE:B4:4F"
+      ]
+    }
+  }
+]
