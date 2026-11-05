@@ -79,10 +79,10 @@ function DeviceCard({ screen, onSelect }) {
   return (
     <div
       onClick={() => onSelect(screen)}
-      className="group relative flex-shrink-0 cursor-pointer select-none transition-transform duration-300 hover:-translate-y-1.5"
+      className="group relative flex-shrink-0 cursor-pointer select-none"
     >
-      {/* Device Outer Chassis - Compact & Neatly Proportioned */}
-      <div className="relative w-[155px] sm:w-[180px] md:w-[200px] overflow-hidden rounded-[1.9rem] sm:rounded-[2.1rem] border-[4.5px] sm:border-[5px] border-[#1C1E22] bg-[#0E1013] p-1 shadow-[0_12px_28px_-10px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.03)] ring-1 ring-black/10 transition-all duration-300 group-hover:border-[#2C3036] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.18)]">
+      {/* Entire Device Chassis hovers as one physical phone unit */}
+      <div className="relative w-[155px] sm:w-[180px] md:w-[200px] overflow-hidden rounded-[1.9rem] sm:rounded-[2.1rem] border-[4.5px] sm:border-[5px] border-[#1C1E22] bg-[#0E1013] p-1 shadow-[0_12px_28px_-10px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.03)] ring-1 ring-black/10 transition-all duration-300 ease-out group-hover:-translate-y-2.5 group-hover:scale-[1.03] group-hover:border-[#383D45] group-hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.28),0_8px_20px_rgba(0,0,0,0.1)]">
         {/* Top Speaker / Sensor Notch */}
         <div className="absolute left-1/2 top-2 z-30 -translate-x-1/2 flex items-center justify-center">
           <div className="h-3 w-14 sm:w-16 rounded-full bg-black/95 shadow-inner ring-1 ring-white/10 flex items-center justify-between px-1.5">
@@ -98,7 +98,7 @@ function DeviceCard({ screen, onSelect }) {
             alt={screen.title}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            className="h-full w-full object-cover object-top"
           />
 
           {/* Subtle top reflection overlay */}
@@ -115,7 +115,7 @@ function DeviceCard({ screen, onSelect }) {
       </div>
 
       {/* Caption details below device */}
-      <div className="mt-2.5 px-1 text-left">
+      <div className="mt-2.5 px-1 text-left transition-transform duration-300 ease-out group-hover:-translate-y-1">
         <div className="flex items-center gap-1.5">
           <span className="inline-flex items-center gap-1 font-mono text-[9px] sm:text-[9.5px] font-semibold uppercase tracking-wider text-[#6B7280]">
             <Icon className="h-2.5 w-2.5 text-[#4B5563]" />

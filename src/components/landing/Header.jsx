@@ -11,15 +11,6 @@ const NAV = [
   { label: "Terms", to: "/terms" },
 ];
 
-function Mark() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 1.5 22.5 21.5H1.5L12 1.5Z" fill="#1f1f1f" />
-      <path d="M12 9.5 17.2 20H6.8L12 9.5Z" fill="#fff" />
-    </svg>
-  );
-}
-
 function NavPill({ size = "md" }) {
   const base =
     size === "sm"
@@ -74,8 +65,7 @@ export default function Header() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="relative flex h-16 items-center justify-between md:h-20">
-          <Link to="/" className="flex items-center gap-2.5">
-            <Mark />
+          <Link to="/" className="flex items-center">
             <span className="text-[15px] font-semibold tracking-[-0.02em] text-[#1f1f1f] sm:text-[17px]">
               {BRAND}
             </span>

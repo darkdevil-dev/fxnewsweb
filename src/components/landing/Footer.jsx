@@ -10,11 +10,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-12 sm:py-14">
         <div className="flex flex-col gap-9 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <Link to="/" className="flex items-center gap-2.5">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 1.5 22.5 21.5H1.5L12 1.5Z" fill="#1f1f1f" />
-                <path d="M12 9.5 17.2 20H6.8L12 9.5Z" fill="#fff" />
-              </svg>
+            <Link to="/" className="flex items-center">
               <span className="text-[15px] font-semibold tracking-[-0.02em] text-[#1f1f1f]">
                 {BRAND}
               </span>
