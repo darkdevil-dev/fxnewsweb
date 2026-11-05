@@ -72,61 +72,61 @@ const SCREENS = [
   },
 ];
 
-// Modern Device Card Frame
+// Modern Device Card Frame - Compact & Clean
 function DeviceCard({ screen, onSelect }) {
   const Icon = screen.icon;
 
   return (
     <div
       onClick={() => onSelect(screen)}
-      className="group relative flex-shrink-0 cursor-pointer select-none transition-transform duration-300 hover:-translate-y-2"
+      className="group relative flex-shrink-0 cursor-pointer select-none transition-transform duration-300 hover:-translate-y-1.5"
     >
-      {/* Device Outer Chassis */}
-      <div className="relative w-[210px] sm:w-[250px] md:w-[270px] overflow-hidden rounded-[2.2rem] border-[5px] sm:border-[6px] border-[#1E2024] bg-[#0E1013] p-1.5 shadow-[0_16px_36px_-12px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.04)] ring-1 ring-black/10 transition-all duration-300 group-hover:border-[#2C3036] group-hover:shadow-[0_24px_50px_-10px_rgba(0,0,0,0.2)]">
+      {/* Device Outer Chassis - Compact & Neatly Proportioned */}
+      <div className="relative w-[155px] sm:w-[180px] md:w-[200px] overflow-hidden rounded-[1.9rem] sm:rounded-[2.1rem] border-[4.5px] sm:border-[5px] border-[#1C1E22] bg-[#0E1013] p-1 shadow-[0_12px_28px_-10px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.03)] ring-1 ring-black/10 transition-all duration-300 group-hover:border-[#2C3036] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.18)]">
         {/* Top Speaker / Sensor Notch */}
-        <div className="absolute left-1/2 top-3 z-30 -translate-x-1/2 flex items-center justify-center">
-          <div className="h-3.5 sm:h-4 w-18 sm:w-22 rounded-full bg-black/95 shadow-inner ring-1 ring-white/10 flex items-center justify-between px-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-blue-500/60" />
-            <span className="h-2 w-2 rounded-full bg-neutral-900 ring-1 ring-neutral-700" />
+        <div className="absolute left-1/2 top-2 z-30 -translate-x-1/2 flex items-center justify-center">
+          <div className="h-3 w-14 sm:w-16 rounded-full bg-black/95 shadow-inner ring-1 ring-white/10 flex items-center justify-between px-1.5">
+            <span className="h-1 w-1 rounded-full bg-blue-500/60" />
+            <span className="h-1.5 w-1.5 rounded-full bg-neutral-900 ring-1 ring-neutral-700" />
           </div>
         </div>
 
         {/* Screen Bezel & Image Container */}
-        <div className="relative aspect-[9/19.8] w-full overflow-hidden rounded-[1.8rem] bg-[#08090A]">
+        <div className="relative aspect-[9/19.8] w-full overflow-hidden rounded-[1.55rem] sm:rounded-[1.75rem] bg-[#08090A]">
           <img
             src={`/screenshots/${screen.file}`}
             alt={screen.title}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
           />
 
           {/* Subtle top reflection overlay */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-black/35" />
 
           {/* Hover Expand Trigger Badge */}
-          <div className="absolute inset-x-3 bottom-3 z-20 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <div className="flex items-center justify-between rounded-xl border border-white/20 bg-black/80 px-3 py-2 text-white shadow-lg backdrop-blur-md">
-              <span className="text-[11.5px] font-medium tracking-tight">Inspect screen</span>
-              <Maximize2 className="h-3.5 w-3.5 text-white/90" />
+          <div className="absolute inset-x-2.5 bottom-2.5 z-20 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div className="flex items-center justify-between rounded-lg border border-white/20 bg-black/80 px-2.5 py-1.5 text-white shadow-lg backdrop-blur-md">
+              <span className="text-[10.5px] font-medium tracking-tight">Inspect</span>
+              <Maximize2 className="h-3 w-3 text-white/90" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Caption details below device */}
-      <div className="mt-3.5 px-1.5 text-left">
+      <div className="mt-2.5 px-1 text-left">
         <div className="flex items-center gap-1.5">
-          <span className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-[#6B7280]">
-            <Icon className="h-3 w-3 text-[#4B5563]" />
+          <span className="inline-flex items-center gap-1 font-mono text-[9px] sm:text-[9.5px] font-semibold uppercase tracking-wider text-[#6B7280]">
+            <Icon className="h-2.5 w-2.5 text-[#4B5563]" />
             {screen.kicker}
           </span>
           <span className="text-[#D1D5DB]">•</span>
-          <span className="rounded-full bg-neutral-100 px-1.5 py-0.5 text-[9.5px] font-medium text-neutral-600">
+          <span className="rounded-full bg-neutral-100 px-1 py-0.2 text-[8.5px] sm:text-[9px] font-medium text-neutral-600">
             {screen.badge}
           </span>
         </div>
-        <h4 className="mt-1 text-[13.5px] font-semibold leading-tight text-[#111827]">
+        <h4 className="mt-0.5 text-[12px] sm:text-[13px] font-semibold leading-tight text-[#111827]">
           {screen.title}
         </h4>
       </div>
@@ -172,9 +172,9 @@ export default function AppMotionGallery() {
             </span>
           </div>
 
-          <h2 className="mx-auto mt-4 max-w-2xl text-[clamp(1.9rem,4.4vw,3.4rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-[#0F172A]">
-            Real-Time Economic Calendar. <br className="hidden sm:inline" />
-            <span className="text-[#64748B]">Ahead of Every Market Release.</span>
+          <h2 className="mx-auto mt-4 w-full text-[clamp(0.92rem,4.2vw,3.1rem)] font-semibold leading-[1.15] tracking-[-0.035em] text-[#0F172A]">
+            <span className="block whitespace-nowrap">Real-Time Economic Calendar.</span>
+            <span className="block whitespace-nowrap text-[#64748B]">Ahead of Every Market Release.</span>
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-[#4B5563] sm:text-[16.5px]">
@@ -191,12 +191,12 @@ export default function AppMotionGallery() {
         </div>
       </div>
 
-      {/* Single Continuous Horizontal Motion Row */}
-      <div className="mt-12 sm:mt-16">
+      {/* Centered Gallery Container - Stay in the middle, not full screen */}
+      <div className="mx-auto mt-10 max-w-5xl px-4 sm:px-6">
         <div
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]"
+          className="relative w-full overflow-hidden rounded-[2rem] border border-black/[0.05] bg-gradient-to-b from-neutral-50/60 via-white to-neutral-50/40 py-6 sm:py-8 shadow-xs [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]"
         >
           <motion.div
             animate={
@@ -205,11 +205,11 @@ export default function AppMotionGallery() {
                 : { x: ["0%", "-50%"] }
             }
             transition={{
-              duration: 38,
+              duration: 34,
               repeat: Infinity,
               ease: "linear",
             }}
-            className="flex w-max items-start gap-5 sm:gap-7 px-4"
+            className="flex w-max items-start gap-4 sm:gap-6 px-4"
           >
             {galleryItems.map((screen, idx) => (
               <DeviceCard
