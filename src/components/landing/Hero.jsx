@@ -7,7 +7,7 @@ import {
   useTransform,
   useReducedMotion,
 } from "framer-motion";
-import { ArrowRight, Play, Zap, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowRight, Play, Zap, TrendingUp } from "lucide-react";
 import { PLAY_STORE_URL } from "./links";
 import Ticker from "./Ticker";
 
@@ -210,36 +210,20 @@ export default function Hero() {
               Every release is rated for market volatility, with instant push alerts the moment the number crosses.
             </motion.p>
 
-            {/* Primary Action Buttons */}
-            <motion.div {...fade(0.65)} className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row">
+            {/* Primary Action Button */}
+            <motion.div {...fade(0.65)} className="mt-8 flex justify-center sm:mt-9">
               <a
                 href={PLAY_STORE_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[#111827] px-6 py-3.5 text-[14px] font-medium text-white shadow-[0_12px_28px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-black hover:shadow-[0_18px_36px_-12px_rgba(0,0,0,0.45)] sm:w-auto"
+                className="group relative inline-flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-[#111827] px-7 py-3.5 text-[14px] font-medium text-white shadow-[0_12px_28px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-black hover:shadow-[0_18px_36px_-12px_rgba(0,0,0,0.45)] sm:w-auto"
               >
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                 <Play className="relative h-4 w-4 fill-white" />
                 <span className="relative">Download on Google Play</span>
                 <ArrowRight className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
-
-              <a
-                href="#gallery"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-black/[0.08] bg-white/80 px-5 py-3.5 text-[14px] font-medium text-[#374151] transition-colors hover:bg-neutral-50 hover:text-[#111827] sm:w-auto"
-              >
-                <Sparkles className="h-4 w-4 text-neutral-500" />
-                <span>Explore App UI</span>
-              </a>
             </motion.div>
-
-            {/* Micro reassurance copy */}
-            <motion.p
-              {...fade(0.75)}
-              className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#9CA3AF]"
-            >
-              Free download · No registration required
-            </motion.p>
           </div>
 
           <Ticker />

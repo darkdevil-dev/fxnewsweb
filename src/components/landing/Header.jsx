@@ -6,7 +6,6 @@ import { BRAND, PLAY_STORE_URL } from "./links";
 
 const NAV = [
   { label: "Home", to: "/" },
-  { label: "Gallery", href: "#gallery" },
   { label: "Download", href: PLAY_STORE_URL },
   { label: "Privacy", to: "/privacy" },
   { label: "Terms", to: "/terms" },
