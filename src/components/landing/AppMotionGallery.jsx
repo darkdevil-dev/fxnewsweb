@@ -225,56 +225,64 @@ export default function AppMotionGallery() {
       {/* Screen Detail Lightbox Modal */}
       <AnimatePresence>
         {selectedScreen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-6">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedScreen(null)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-xl"
+              className="absolute inset-0 bg-black/75 backdrop-blur-xl"
             />
 
             {/* Modal Container */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 16 }}
+              initial={{ opacity: 0, scale: 0.95, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 16 }}
+              exit={{ opacity: 0, scale: 0.95, y: 12 }}
               transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="relative z-10 flex max-h-[92vh] w-full max-w-4xl flex-col overflow-y-auto sm:overflow-hidden rounded-[2rem] border border-white/20 bg-white/95 p-6 shadow-2xl backdrop-blur-2xl sm:flex-row sm:items-center sm:gap-8 sm:p-8"
+              className="relative z-10 flex max-h-[92vh] w-full max-w-4xl flex-col overflow-y-auto rounded-[2rem] border border-black/[0.08] bg-white p-5 shadow-2xl md:flex-row md:items-center md:gap-8 md:p-7 md:overflow-hidden"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedScreen(null)}
                 aria-label="Close modal"
-                className="absolute right-5 top-5 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-neutral-100 text-[#4B5563] transition-colors hover:bg-neutral-200 hover:text-black"
+                className="absolute right-4 top-4 z-30 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-neutral-100 text-[#4B5563] transition-colors hover:bg-neutral-200 hover:text-black"
               >
                 <X className="h-5 w-5" />
               </button>
 
-              {/* Large Device View */}
-              <div className="relative mx-auto w-[220px] sm:w-[270px] flex-shrink-0">
-                <div className="relative overflow-hidden rounded-[2.3rem] border-[6px] border-[#1C1E22] bg-[#0E1012] p-1.5 shadow-2xl ring-1 ring-black/20">
-                  {/* Speaker pill */}
-                  <div className="absolute left-1/2 top-3 z-30 -translate-x-1/2 flex items-center justify-center">
-                    <div className="h-4 w-20 rounded-full bg-black/95 px-2 flex items-center justify-between ring-1 ring-white/10">
-                      <span className="h-1.5 w-1.5 rounded-full bg-blue-500/50" />
-                      <span className="h-2 w-2 rounded-full bg-neutral-800" />
+              {/* Contained Phone Mockup - Scaled to fit viewport height so it never cuts off */}
+              <div className="flex flex-shrink-0 items-center justify-center py-2 md:py-0">
+                <div className="relative h-[min(480px,64vh)] aspect-[9/19.5] overflow-hidden rounded-[2.2rem] border-[5px] border-[#1C1E22] bg-[#0E1012] p-1 shadow-2xl ring-1 ring-black/20">
+                  {/* Dynamic Island / Speaker Notch */}
+                  <div className="absolute left-1/2 top-2 z-30 -translate-x-1/2 flex items-center justify-center">
+                    <div className="h-3 w-16 rounded-full bg-black/95 px-1.5 flex items-center justify-between ring-1 ring-white/10">
+                      <span className="h-1 w-1 rounded-full bg-blue-500/60" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-neutral-800" />
                     </div>
                   </div>
 
-                  <div className="relative aspect-[9/19.8] w-full overflow-hidden rounded-[1.9rem] bg-black">
+                  {/* Scrollable Screen inside frame so entire 2400px image can be examined */}
+                  <div className="relative h-full w-full overflow-y-auto rounded-[1.8rem] bg-white scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                     <img
                       src={`/screenshots/${selectedScreen.file}`}
                       alt={selectedScreen.title}
-                      className="h-full w-full object-cover object-top"
+                      className="w-full object-contain object-top"
                     />
+                  </div>
+
+                  {/* Scroll indicator hint at bottom of phone */}
+                  <div className="pointer-events-none absolute inset-x-2 bottom-1.5 z-20 flex justify-center">
+                    <span className="rounded-full bg-black/60 px-2 py-0.5 text-[9px] font-medium text-white/90 backdrop-blur-xs">
+                      Scroll to explore
+                    </span>
                   </div>
                 </div>
               </div>
 
               {/* Feature Details Panel */}
-              <div className="mt-6 flex flex-1 flex-col justify-between text-left sm:mt-0">
+              <div className="mt-5 flex flex-1 flex-col justify-between text-left md:mt-0">
                 <div>
                   <div className="inline-flex items-center gap-1.5 rounded-full bg-neutral-100 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-neutral-700">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
@@ -289,7 +297,7 @@ export default function AppMotionGallery() {
                     {selectedScreen.subtitle}
                   </p>
 
-                  <div className="mt-6 space-y-2.5 rounded-2xl border border-neutral-200/80 bg-neutral-50/70 p-4">
+                  <div className="mt-5 space-y-2.5 rounded-2xl border border-neutral-200/80 bg-neutral-50/70 p-4">
                     <div className="flex items-center justify-between text-[13px]">
                       <span className="text-[#6B7280]">Trading Feature</span>
                       <span className="font-semibold text-[#111827]">{selectedScreen.badge}</span>
@@ -305,13 +313,22 @@ export default function AppMotionGallery() {
                   </div>
                 </div>
 
-                {/* Lightbox Navigation */}
-                <div className="mt-8 flex items-center justify-between border-t border-neutral-200 pt-4">
+                {/* Lightbox Navigation & Direct View */}
+                <div className="mt-6 flex flex-col gap-3 border-t border-neutral-200 pt-4 sm:flex-row sm:items-center sm:justify-between">
                   <div className="text-xs font-mono text-[#9CA3AF]">
                     Use ← and → keys to switch
                   </div>
 
                   <div className="flex items-center gap-2">
+                    <a
+                      href={`/screenshots/${selectedScreen.file}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-[12px] font-medium text-neutral-700 transition-colors hover:bg-neutral-100"
+                    >
+                      <Maximize2 className="h-3 w-3" />
+                      <span>Full screen</span>
+                    </a>
                     <button
                       onClick={() => {
                         const prevId = selectedScreen.id === 1 ? 6 : selectedScreen.id - 1;
@@ -342,3 +359,4 @@ export default function AppMotionGallery() {
     </section>
   );
 }
+
